@@ -25,3 +25,11 @@ Finally, install the required R libraries with:
 ```bash
 $ Rscript scripts/r_installer.R
 ```
+
+## Running project's analysis
+
+First, get the Dundee data `dundee.zip` and add it to folder `corpora`.
+Then, get the data for the other datasets in this project by running:
+```bash
+$ make get_data
+```
