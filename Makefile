@@ -50,48 +50,42 @@ DUNDEE_FILE := $(DUNDEE_DIR)/eye-tracking/sa01ma1p.dat
 
 
 DATASET_DIR := $(DATA_DIR)/$(DATASET_BASE_NAME)
+
 TEXT_RT_DIR := $(CHECKPOINT_DIR)/text_rt_data/
 SURPRISALS_DIR := $(CHECKPOINT_DIR)/surprisals_rt_data/
-PREPROCESSED_RT_DIR := $(CHECKPOINT_DIR)/preprocess_rt_data/
-RT_ENTROPY_DIR := $(CHECKPOINT_DIR)/rt_and_entropy/
+PREPROCESSED_RT_DIR := $(CHECKPOINT_DIR)/preprocessed_rt_data/
+MERGED_DATA_DIR := $(CHECKPOINT_DIR)/merged_data/
+# RT_ENTROPY_DIR := $(CHECKPOINT_DIR)/rt_and_entropy/
 PARAMS_DIR := $(CHECKPOINT_DIR)/params/
 DELTA_LLH_DIR := $(CHECKPOINT_DIR)/delta_llh/
 
 TEXT_RT_FILE := $(TEXT_RT_DIR)/$(DATASET).txt
 SURPRISALS_FILE := $(SURPRISALS_DIR)/suprisal-$(DATASET)-$(MODEL).tsv
-PREPROCESSED_FILE := $(PREPROCESSED_RT_DIR)/$(DATASET).tsv
+PREPROCESSED_RT_FILE := $(PREPROCESSED_RT_DIR)/$(DATASET).tsv
+MERGED_DATA_FILE := $(MERGED_DATA_DIR)/$(DATASET)-$(MODEL).tsv
 PROCESSED_FILE := $(RT_ENTROPY_DIR)/rt_vs_entropy-$(DATASET)-$(MODEL).tsv
 
-ANALYSIS_PARAMS_FULL_FNAME_BASE := $(PARAMS_DIR)/full-$(DATASET)-$(MODEL)
-ANALYSIS_PARAMS_MERGED_FNAME_BASE := $(PARAMS_DIR)/merged-$(DATASET)-$(MODEL)
-ANALYSIS_PARAMS_LINEAR_FNAME_BASE := $(PARAMS_DIR)/merged-linear-$(DATASET)-$(MODEL)
-ANALYSIS_PARAMS_LINEAR_RENYI_FNAME_BASE := $(PARAMS_DIR)/merged-linear-renyi-$(DATASET)-$(MODEL)
-ANALYSIS_PARAMS_LINEAR_SKIP_FNAME_BASE := $(PARAMS_DIR)/merged-linear-skip-$(DATASET)-$(MODEL)
+# ANALYSIS_PARAMS_FULL_FNAME_BASE := $(PARAMS_DIR)/full-$(DATASET)-$(MODEL)
+# ANALYSIS_PARAMS_MERGED_FNAME_BASE := $(PARAMS_DIR)/merged-$(DATASET)-$(MODEL)
+ANALYSIS_PARAMS_FNAME_BASE := $(PARAMS_DIR)/params-$(DATASET)-$(MODEL)
+# ANALYSIS_PARAMS_LINEAR_RENYI_FNAME_BASE := $(PARAMS_DIR)/merged-linear-renyi-$(DATASET)-$(MODEL)
+# ANALYSIS_PARAMS_LINEAR_SKIP_FNAME_BASE := $(PARAMS_DIR)/merged-linear-skip-$(DATASET)-$(MODEL)
 
-LLH_LINEAR_FILE := $(DELTA_LLH_DIR)/merged-linear-$(DATASET)-$(MODEL).tsv
+LLH_FILE := $(DELTA_LLH_DIR)/llh-$(DATASET)-$(MODEL).tsv
 # LLH_SKIP_FILE :=  $(DELTA_LLH_DIR)/skip-merged-linear-$(DATASET)-$(MODEL).tsv
 
 WORD_LENGTHS_DIR := $(CHECKPOINT_DIR)/wiki40b_probs/
 WORD_PROBS_FILE := $(WORD_LENGTHS_DIR)/finished_probs/surprisals_wiki_en_$(MODEL).tsv
 LENGTH_PREDICTIONS_FILE := $(WORD_LENGTHS_DIR)/lengths/lengths_wiki_en_$(MODEL).tsv
 
-ALL_DATASETS :=  brown natural_stories \
-	provo provo_skip2zero \
-	dundee dundee_skip2zero
 
-
-# all: get_data process_data 
-# # get_llh_linear
-
-# # get_llh_skip: $(LLH_SKIP_FILE)
+all: get_data process_data get_llh
 
 # get_length_predictions: $(LENGTH_PREDICTIONS_FILE)
 
-# get_llh_linear: $(LLH_LINEAR_FILE)
+get_llh: $(LLH_FILE)
 
-process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE)
-# # $(PREPROCESSED_FILE)
-# #  $(PROCESSED_FILE)
+process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 
 get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(BROWN_FILE) $(BNC_FILE) $(DUNDEE_FILE)
 
@@ -102,8 +96,8 @@ get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(BROWN_FILE) $(BNC
 # 	python src/h03_paper/plot_renyi_llh.py
 # 	python src/other/renyi_analysis_script.py
 
-# print_table_1:
-# 	python src/h03_paper/print_table_1_surprisal.py
+print_table_1:
+	python src/h03_paper/print_table_1_surprisal.py
 
 # print_table_2:
 # 	python src/h03_paper/print_table_2_fixed.py --model $(MODEL)
@@ -114,34 +108,28 @@ get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(BROWN_FILE) $(BNC
 # $(LENGTH_PREDICTIONS_FILE):
 # 	python src/h01_data/get_length_predictions.py --model $(MODEL) --dataset $(DATASET) --input-path $(WORD_LENGTHS_DIR) --output-fname $(LENGTH_PREDICTIONS_FILE)
 
-# $(LLH_LINEAR_FILE):
-# 	mkdir -p $(PARAMS_DIR)
-# 	mkdir -p $(DELTA_LLH_DIR)
-# 	Rscript src/h02_rt_model/rt_vs_entropy.R $(PROCESSED_FILE) $(LLH_LINEAR_FILE) $(ANALYSIS_PARAMS_LINEAR_FNAME_BASE) --merge-workers --is-linear
+$(LLH_FILE):
+	mkdir -p $(PARAMS_DIR)
+	mkdir -p $(DELTA_LLH_DIR)
+	Rscript src/h02_rt_model/rt_vs_surprisal.R $(MERGED_DATA_FILE) $(LLH_FILE) $(ANALYSIS_PARAMS_FNAME_BASE) --merge-workers --is-linear
 
-# # Preprocess rt data
-# $(PROCESSED_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(RT_ENTROPY_DIR)
-# 	python src/h01_data/get_surprisals.py --model $(MODEL) --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(PROCESSED_FILE)
+# Preprocess rt data
+$(MERGED_DATA_FILE):
+	echo "Process rt data in " $(DATASET)
+	mkdir -p $(MERGED_DATA_DIR)
+	python src/h01_data/get_rt_with_surprisal_dataset.py --rt-fname $(PREPROCESSED_RT_FILE) --surprisal-fname $(SURPRISALS_FILE) --output-fname $(MERGED_DATA_FILE)
 
-# # Preprocess rt data
-# $(PREPROCESSED_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(PREPROCESSED_RT_DIR)
-# 	python src/h01_data/preprocess_rt_data.py --model $(MODEL) --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(PREPROCESSED_FILE)
+# Preprocess rt data
+$(PREPROCESSED_RT_FILE):
+	echo "Process rt data in " $(DATASET)
+	mkdir -p $(PREPROCESSED_RT_DIR)
+	python src/h01_data/preprocess_rt_dataset.py --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(PREPROCESSED_RT_FILE)
 
 # Get surprisals
 $(SURPRISALS_FILE):
 	echo "Process rt data in " $(DATASET)
 	mkdir -p $(SURPRISALS_DIR)
 	wordsprobability --model $(MODEL) --input $(TEXT_RT_FILE) --output $(SURPRISALS_FILE) --return-buggy-surprisals
-
-# # Preprocess rt data
-# $(TEXT_RT_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(TEXT_RT_DIR)
-# 	python src/h01_data/extract_rt_text.py --model $(MODEL) --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(TEXT_RT_FILE)
 
 # Preprocess rt data
 $(TEXT_RT_FILE):
