@@ -2,10 +2,10 @@ import numpy as np
 
 POWER_RANGE = np.arange(0., 3, 0.25)
 STRIDE = 200
-MODELS = ['gpt-small', 'gpt-medium', 'gpt-large', 'gpt-xl', 
+MODELS = ['gpt2-small', 'gpt2-medium', 'gpt2-large', 'gpt2-xl', 
           'pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b', 'pythia-28b', 'pythia-69b', 'pythia-120b',]
 
-DATASETS = ['brown', 'natural_stories', 'provo_skip2zero', 'dundee_skip2zero', ]
+DATASETS = ['brown', 'natural_stories', 'provo', 'dundee', ]
 
 PREDICTOR_NAMES = {
     'surprisal_buggy': r'$h(w_{t})$',

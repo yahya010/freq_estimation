@@ -3,7 +3,7 @@ import sys
 import argparse
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from dataset import NaturalStoriesDataset
+from dataset import NaturalStoriesDataset, ProvoDataset
 from utils import utils
 
 
@@ -23,8 +23,8 @@ def get_text(args):
         df = NaturalStoriesDataset.preprocess(args.input_path)
     # elif args.dataset == 'brown':
     #     text = get_brown_text(args)
-    # elif args.dataset == 'provo':
-    #     text = get_provo_text(args, main_time_field='time5')
+    elif args.dataset == 'provo':
+        df = ProvoDataset.preprocess(args.input_path)
     # elif args.dataset == 'provo_skip2zero':
     #     text = get_provo_text(args, main_time_field='time5', skip2zero=True)
     # elif args.dataset == 'dundee':

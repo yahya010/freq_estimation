@@ -7,7 +7,7 @@ from utils import utils
 
 class BaseDataset():
     @staticmethod
-    def get_corpus_stats(stories):
+    def get_corpus_words(stories):
         stats = defaultdict(dict)
         for i, s in stories:
             # remove leading and trailing white space
@@ -30,12 +30,12 @@ class BaseDataset():
         df['ref_token'] = df[['text_id', 'word_id']].apply(
             lambda x: split_strings[x['text_id']][x['word_id']], axis=1)
 
-        if dataset == 'provo':
-            df['word'] = df['word'].apply(lambda x: x.lower().strip(punctuation))
-            df['ref_token'] = df['ref_token'].apply(lambda x: x.lower().strip(punctuation))
-            assert (df['word'] == df['ref_token']).all()
+        # if dataset == 'provo':
+        #     df['word'] = df['word'].apply(lambda x: x.lower().strip(punctuation))
+        #     df['ref_token'] = df['ref_token'].apply(lambda x: x.lower().strip(punctuation))
+        #     assert (df['word'] == df['ref_token']).all()
 
-        elif dataset == 'dundee':
+        if dataset == 'dundee':
             df['word_orig'] = df['word']
             df['word'] = df['word'].apply(lambda x: x.strip(punctuation + ' \t').replace('"', '‚').replace(',‚', '‚,'))
             df['ref_token2'] = df['ref_token'].apply(lambda x: x.strip(punctuation + ' \t').strip('‚"').replace('”', '‚'))
@@ -53,6 +53,6 @@ class BaseDataset():
         return df
     
     @classmethod
-    def remove_unused_columns(cls, df):
-        for col in cls.unused_columns:
+    def remove_unused_columns(cls, df, unused_columns):
+        for col in unused_columns:
             del df[col]

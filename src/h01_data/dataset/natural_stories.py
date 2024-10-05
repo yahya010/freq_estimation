@@ -24,7 +24,6 @@ class NaturalStoriesDataset(BaseDataset):
 
         # Concatenate words in a story, and stories together
         stories_df = gpt3_probs.groupby(by=["story"], sort=False).agg({"token_with_ws": utils.string_join}).reset_index()
-        # stories = '\n'.join(stories_df['token_with_ws'].apply(lambda x: x.strip()).values)
         stories = list(zip(stories_df['story'], stories_df['token_with_ws']))
 
         return stories
@@ -40,7 +39,7 @@ class NaturalStoriesDataset(BaseDataset):
     def preprocess(cls, input_path):
         # Get natural stories text
         stories = cls.get_stories_text(input_path)
-        ns_stats = cls.get_corpus_stats(stories)
+        ns_text_words = cls.get_corpus_words(stories)
 
         # Get natural stories RTs
         df = pd.read_csv("%s/processed_RTs.tsv" % (input_path), sep='\t').drop_duplicates()
@@ -51,16 +50,11 @@ class NaturalStoriesDataset(BaseDataset):
         df = utils.find_outliers(df, transform=np.log)
 
         # Create preprocessed dataframe
-        df = cls.create_analysis_dataframe(df, ns_stats)
+        df = cls.create_analysis_dataframe(df, ns_text_words)
 
         # Check word matches ref_token (except for peeked vs peaked distinction)
         assert ((df['word'] == df['ref_token']) | (df['word'] == 'peaked')).all()
 
         # Deleted unused info from dataframe
-        cls.remove_unused_columns(df)
+        cls.remove_unused_columns(df, cls.unused_columns)
         return df
-    
-    # @staticmethod
-    # def remove_unused_columns(df):
-    #     for col in unused_columns:
-    #         del df[col]
