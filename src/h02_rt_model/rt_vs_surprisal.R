@@ -11,15 +11,11 @@ merge_workers = as.logical(merge_workers)
 n_folds = 10
 tgt_var = 'time'
 
-# input_fname <- '../../checkpoints/rt_and_entropy/rt_vs_entropy-brown-gpt-small.tsv'
-# is_linear <- TRUE
-# merge_workers <- TRUE
-
 set.seed(42)
 df <- load_and_preprocess_data(input_fname, merge_workers)
 
 if (is_linear) {
-  predictors <- get_surprisal_predictors()
+  predictors <- c()
 
   variables <- c('surprisal', 'surprisal_buggy')
   for (variable in variables) {
@@ -108,16 +104,12 @@ df_full <- c()
 df_full <- cbind(df_full,
   full_diffs[['predictor']], full_diffs[['predictor_type']],
   full_diffs[['name']], full_diffs[['fold']],
-  full_diffs[['diff_empty']],
-  full_diffs[['diff_medium_surprisal']], full_diffs[['diff_full_surprisal']] 
-  # , full_diffs[['diff_successor_entropy_logprob']], full_diffs[['diff_both_entropy']], 
-  # full_diffs[['diff_successor_renyi_logprob']], full_diffs[['diff_both_renyi']]
+  full_diffs[['diff_empty']], full_diffs[['diff_full_surprisal']] 
   )
 
 colnames(df_full) <- c(
   'predictor', 'predictor_type', 'name', 'fold', 
-  'diff_empty', 'diff_medium_surprisal', 'diff_full_surprisal'
-  # , 'diff_successor_entropy_logprob', 'diff_both_entropy', 'diff_successor_renyi_logprob', 'diff_both_renyi'
+  'diff_empty', 'diff_full_surprisal'
   )
 
 write.table(df_full, output_fname, quote=FALSE, sep='\t')

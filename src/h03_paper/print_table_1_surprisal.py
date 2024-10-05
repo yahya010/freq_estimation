@@ -16,11 +16,7 @@ from utils import utils
 
 def get_args():
     parser = argparse.ArgumentParser()
-    # Model
-    # parser.add_argument('--datasets', type=str, nargs='+', default=constants.DATASETS)
-    # parser.add_argument('--datasets', type=str, nargs='+', default=['natural_stories'])
-    # parser.add_argument('--model', type=str, default='gpt-small')
-    # parser.add_argument('--glm-type', type=str, default='llh')
+    # Regressor
     parser.add_argument('--predictor', type=str, default='surprisal')
     # Other
     parser.add_argument('--seed', type=int, default=7)
@@ -63,26 +59,6 @@ def get_spillover_llh(model, datasets, predictor, predictor_type, predictor_time
             df['diff'] = df['diff_full_surprisal']
         elif predictor in ['surprisal_buggy', 'surprisal'] and predictor_type in ['new_raw']:
             df['diff'] = df['diff_empty']
-        # elif predictor in ['surprisal_fixed'] and predictor_type in ['add_scratch', 'replace']:
-        #     df['diff'] = df['diff_medium_surprisal']
-        # # elif predictor in ['entropy'] and predictor_type in ['successor_entropy']:
-        # #     df['diff'] = df['diff_successor_entropy_surprisal']
-        # # elif predictor in ['renyi_0.50'] and predictor_type in ['successor_renyi_0.50']:
-        # #     df['diff'] = df['diff_successor_renyi_surprisal']
-        # elif predictor in ['next_surprisal_fixed', 'next_surprisal'] and predictor_type in ['add']:
-        #     df['diff'] = df['diff_full_surprisal']
-        # # elif predictor in ['next_entropy'] and predictor_type in ['budget_entropy']:
-        # #     df['diff'] = df['diff_both_entropy']
-        # # elif predictor in ['next_renyi_0.50'] and predictor_type in ['budget_renyi_0.50']:
-        # #     df['diff'] = df['diff_both_renyi']
-        # # elif predictor == 'surprisal' and predictor_type == 'remove_from_entropy':
-        # #     df['diff'] = - df['diff_both_entropy']
-        # # elif predictor == 'surprisal' and predictor_type == 'remove_from_renyi_0.50':
-        # #     df['diff'] = - df['diff_both_renyi']
-        # # elif predictor in ['entropy', 'overbudget_entropy', 'underbudget_entropy', 'absdelta_entropy'] and predictor_type == 'budget_entropy':
-        # #     df['diff'] = df['diff_both_entropy']
-        # # elif predictor in ['renyi_0.50', 'overbudget_renyi_0.50', 'underbudget_renyi_0.50', 'absdelta_renyi_0.50'] and predictor_type == 'budget_renyi_0.50':
-        # #     df['diff'] = df['diff_both_renyi']
         else:
             raise ValueError('Wrong predictor--type combination (%s, %s)' % (predictor, predictor_type))
 
@@ -208,24 +184,13 @@ def get_pvalues(model, datasets, predictors, predictor_times):
     return df_pvalue
 
 
-# def main():
-#     args = get_args()
-#     predictor_times = ['prev3_', 'prev2_', 'prev_', '']
-#     predictors = [('surprisal', 'remove')]
-
-#     df_pvalue = get_pvalues(args.model, args.datasets, args.glm_type, predictors, predictor_times)
-#     print_deltallh(df_pvalue, args.datasets, predictors, predictor_times)
-
-
 def main():
     args = get_args()
     predictor_times = ['prev3_', 'prev2_', 'prev_', '']
-    # predictors = [('entropy', 'replace'), ('entropy', 'add')]
-    # predictors = [(args.predictor, 'replace'), (args.predictor, 'add'), (args.predictor, 'new'), (args.predictor, 'new_raw'), ('surprisal', 'new_raw')]
     predictors = [(args.predictor, 'new'), (args.predictor, 'new_raw'), ('surprisal_buggy', 'new_raw')]
     # models = ['gpt-small', 'gpt-medium', 'gpt-large', 'gpt-xl']
     # models += ['pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b', 'pythia-28b', 'pythia-69b', 'pythia-120b']
-    models = ['pythia-70m']
+    models = ['pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b']
     # datasets = ['brown', 'natural_stories', 'provo_skip2zero']
     datasets = ['natural_stories']
     # predictors = []
