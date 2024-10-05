@@ -1,16 +1,12 @@
-# import bisect
 from string import punctuation
 import numpy as np
 import pandas as pd
-import mosestokenizer
 
 from .base import BaseDataset
 from utils import utils
 
 
 class ProvoDataset(BaseDataset):
-    # unused_columns = ['RECORDING_SESSION_LABEL', 'Word_Unique_ID', 'sentence_num', 'Word_In_Sentence_Number']
-    # 'Word_Number',
     unused_columns_initial = ['RECORDING_SESSION_LABEL', 'Word_Unique_ID',
                             'sentence_num', 'Word_In_Sentence_Number',
                             'Word_Cleaned', 'Word_Length', 'Total_Response_Count', 'Unique_Count',
@@ -34,13 +30,12 @@ class ProvoDataset(BaseDataset):
                             'IA_FIRST_SACCADE_START_TIME']
     unused_columns_final = ['word', 'WorkerId','Word_Number', 'time_v3', 'time_v2',
                             'time_v1', 'time_v4', 'time_v5','centered_time']
-    # Word_Number
-    # we define 5 types of aggregated reading time from v1 to v5
-    # time_v1 -> IA_DWELL_TIME
-    # time_v2 -> IA_FIRST_RUN_DWELL_TIME
-    # time_v3 -> IA_FIRST_FIXATION_DURATION
-    # time_v4 -> First Pass First Fixation Time
-    # time_v5 -> First Pass Dwell Time
+    # We define 5 types of aggregated reading time from v1 to v5:
+    #       time_v1 -> IA_DWELL_TIME
+    #       time_v2 -> IA_FIRST_RUN_DWELL_TIME
+    #       time_v3 -> IA_FIRST_FIXATION_DURATION
+    #       time_v4 -> First Pass First Fixation Time
+    #       time_v5 -> First Pass Dwell Time
     main_time_field='time_v5'
     skip2zero = True
     
@@ -58,11 +53,13 @@ class ProvoDataset(BaseDataset):
         paragraphs = [(text_id, text_str) for text_id, text_str in 
                       provo_text[['Text_ID', 'Text']].itertuples(index=False, name=None)]
         return paragraphs
+
     @staticmethod
     def ref_sanity_check(df):
         df['word'] = df['word'].apply(lambda x: x.lower().strip(punctuation))
         df['ref_token'] = df['ref_token'].apply(lambda x: x.lower().strip(punctuation))
         assert (df['word'] == df['ref_token']).all()
+
     @classmethod
     def get_text(cls, input_path):
         stories = cls.get_stories_text(input_path)
@@ -70,103 +67,42 @@ class ProvoDataset(BaseDataset):
 
         return '\n'.join(stories_text)
     
-    # @classmethod
-    # def get_stories_text2(cls, input_path):
-    #     # Get provo data
-    #     df = cls.read_data(input_path)
-
-    #     moses_normaliser = mosestokenizer.MosesPunctuationNormalizer('en')
-    #     df['word'] = df.apply(lambda x: moses_normaliser(x['word']).strip(), axis=1)
-
-    #     # fixing small discrepancy
-    #     df.loc[df['word'] == '0.9', 'word'] = '90%'
-    #     df.loc[df['word'] == 'women?s', 'word'] = 'womenõs'
-
-
-    #     # provo_text = pd.read_csv('%s/provo_norms.csv' % (input_path), encoding='latin-1')
-    #     # provo_text = provo_text[['Text_ID','Text']].drop_duplicates().sort_values(by=['Text_ID'])
-    #     # provo_text.drop(provo_text[(provo_text.Text_ID == 27) & (~provo_text.Text.str.contains('doesn\'t', regex=False))].index, inplace=True)
-
-    #     # # inds = provo_text.apply(lambda x: list(range(1, len(x['Text'].split()) + 1)), axis=1)
-    #     # # inds = {i: j for i, j in zip(provo_text['Text_ID'], inds)}
-        
-    #     # paragraphs = {i: j.replace(u'\uFFFD', '?') for i, j in provo_text[['Text_ID', 'Text']].itertuples(index=False, name=None)}
-    #     paragraphs = cls.get_stories_text(input_path)
-
-    #     paragraphs_split = {i: [k.strip(punctuation) for k in j.lower().split()] for i, j in paragraphs.items()}
-
-    #     provo_stats = cls.get_corpus_stats(paragraphs.items())
-
-    #     df['word_id'] = df['Word_Number'] - 2
-    #     df['word_id'] = df.apply(lambda x: x['word_id'] + paragraphs_split[x['text_id']][x['word_id']:].index(x['word'].lower().strip(punctuation)), axis=1)
-    #     # df['sentence_num'] = df.apply(lambda x: bisect.bisect(provo_stats['sent_markers'][x['text_id']], x['new_ind']), axis=1)
-
-    #     df['time'] = df[cls.main_time_field]
-
-    #     if not cls.skip2zero:
-    #         df = utils.find_outliers(df.loc[df['time'] != 0].copy(), transform=np.log)
-    #     else:
-    #         df = utils.find_outliers(df, transform=np.log, ignore_zeros=True)
-    #         df['skipped'] = (df['IA_SKIP'] == 1)
-
-    #     df = cls.create_analysis_dataframe(df, provo_stats, dataset='provo')
-    #     cls.ref_sanity_check(df)
-    #     import ipdb; ipdb.set_trace()
-    #     return df
-
-    #     # stories = cls.get_stories_text(input_path)
-    #     # stories_text = [x[1].strip() for x in stories]
-
-    #     # return '\n'.join(stories_text)
-    
     @classmethod
     def preprocess(cls, input_path):
         # Get provo rt data
         df = cls.read_data(input_path)
         cls.remove_unused_columns(df, cls.unused_columns_initial)
 
-        # moses_normaliser = mosestokenizer.MosesPunctuationNormalizer('en')
-        # df['word'] = df.apply(lambda x: moses_normaliser(x['word']).strip(), axis=1)
-        # df['word2'] = df['word']
-
-        # fixing small discrepancy
+        # fixing small discrepancy - Not sure why this is done!
         df.loc[df['word'] == '0.9', 'word'] = '90%'
         df.loc[df['word'] == 'women?s', 'word'] = 'womenõs'
-        # ????????????
-        
 
         # Get provo text
         stories = cls.get_stories_text(input_path)
-
         provo_text_words = cls.get_corpus_words(stories)
-
-        paragraphs_split = {i: [k.strip(punctuation) for k in j.lower().split()] for i, j in stories}
-
 
         # Set word_id to be equal to Word_Number - 2. Word_Number, however, skips some values (word 42 is followed by 44 in story 3)
         # So fix this by looking at which position in string paragraphs_split[x['text_id']] matches the word.
         df['word_id'] = df['Word_Number'] - 2
+        paragraphs_split = {i: [k.strip(punctuation) for k in j.lower().split()] for i, j in stories}
         df['word_id'] = df.apply(
             lambda x: x['word_id'] + 
             paragraphs_split[x['text_id']][x['word_id']:].index(
                 x['word'].lower().strip(punctuation)), axis=1)
-        
-        # df['sentence_num'] = df.apply(lambda x: bisect.bisect(provo_stats['sent_markers'][x['text_id']], x['new_ind']), axis=1)
-        
+
+        # Set the time which will be analysed to the user's choice        
         df['time'] = df[cls.main_time_field]
 
+        # Either drop or not skipped words. Find outliers
         if not cls.skip2zero:
             df = utils.find_outliers(df.loc[df['time'] != 0].copy(), transform=np.log)
         else:
             df = utils.find_outliers(df, transform=np.log, ignore_zeros=True)
             df['skipped'] = (df['skipped'] == 1)
 
+        # Create dataframe and sanity check it
         df = cls.create_analysis_dataframe(df, provo_text_words, dataset='provo')
         cls.ref_sanity_check(df)
-        import ipdb; ipdb.set_trace()
-
-        # Check word matches ref_token (except for peeked vs peaked distinction)
-        # assert ((df['word'] == df['ref_token']) | (df['word'] == 'peaked')).all()
 
         # Deleted unused info from dataframe
         cls.remove_unused_columns(df, cls.unused_columns_final)

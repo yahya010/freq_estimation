@@ -29,7 +29,7 @@ print(paste0('Processing dataset ',input_fname))
 
 # Get baseline log likelihood
 if (is_linear & merge_workers) {
-  baseline_predictors <- 'word_len*freq + prev_freq*prev_word_len + prev2_freq*prev2_word_len + prev3_freq*prev3_word_len'
+  essential_predictors <- 'word_len*freq + prev_freq*prev_word_len + prev2_freq*prev2_word_len + prev3_freq*prev3_word_len'
   baselines <- get_baselines()
 
   baseline_llhs <- hash()
@@ -37,7 +37,7 @@ if (is_linear & merge_workers) {
     baseline_name <- baseline[['name']]
     baseline_function <- baseline[['function']]
 
-    baseline_llhs[[baseline_name]] <- get_baseline_score(tgt_var, baseline_predictors, baseline_function)
+    baseline_llhs[[baseline_name]] <- get_baseline_score(tgt_var, essential_predictors, baseline_function)
   }
 } else if (is_linear && !merge_workers) {
   sys.exit()
@@ -66,7 +66,7 @@ for(i in 1:length(predictors)){
   print(paste0('Processing dataset ',input_fname,' with predictor ',predictor))
   # Get loglikelihood of predictor
   if (is_linear && merge_workers) {
-    formula = paste0(tgt_var," ~ ",predictor," + ",baseline_predictors)
+    formula = paste0(tgt_var," ~ ",predictor," + ",essential_predictors)
     list[full_llh,full_models] <- lme_cross_val(formula, df, tgt_var, random_effects=FALSE)
   } else if (is_linear && !merge_workers) {
     sys.exit()

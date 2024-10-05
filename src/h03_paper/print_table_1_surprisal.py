@@ -188,9 +188,9 @@ def main():
     args = get_args()
     predictor_times = ['prev3_', 'prev2_', 'prev_', '']
     predictors = [(args.predictor, 'new'), (args.predictor, 'new_raw'), ('surprisal_buggy', 'new_raw')]
-    # models = ['gpt-small', 'gpt-medium', 'gpt-large', 'gpt-xl']
+    models = ['gpt2-small', 'gpt2-medium', 'gpt2-large', 'gpt2-xl']
     # models += ['pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b', 'pythia-28b', 'pythia-69b', 'pythia-120b']
-    models = ['pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b', 'pythia-28b']
+    models += ['pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-14b', 'pythia-28b']
     # datasets = ['brown', 'natural_stories', 'provo_skip2zero']
     datasets = ['natural_stories', 'provo']
     # predictors = []
