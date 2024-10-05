@@ -89,7 +89,7 @@ ALL_DATASETS :=  brown natural_stories \
 
 # get_llh_linear: $(LLH_LINEAR_FILE)
 
-# process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE)
+process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE)
 # # $(PREPROCESSED_FILE)
 # #  $(PROCESSED_FILE)
 
@@ -131,17 +131,23 @@ get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(BROWN_FILE) $(BNC
 # 	mkdir -p $(PREPROCESSED_RT_DIR)
 # 	python src/h01_data/preprocess_rt_data.py --model $(MODEL) --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(PREPROCESSED_FILE)
 
-# # Preprocess rt data
-# $(SURPRISALS_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(SURPRISALS_DIR)
-# 	python src/h01_data/get_surprisals.py --model $(MODEL) --input-fname $(TEXT_RT_FILE) --output-fname $(SURPRISALS_FILE)
+# Get surprisals
+$(SURPRISALS_FILE):
+	echo "Process rt data in " $(DATASET)
+	mkdir -p $(SURPRISALS_DIR)
+	wordsprobability --model $(MODEL) --input $(TEXT_RT_FILE) --output $(SURPRISALS_FILE) --return-buggy-surprisals
 
 # # Preprocess rt data
 # $(TEXT_RT_FILE):
 # 	echo "Process rt data in " $(DATASET)
 # 	mkdir -p $(TEXT_RT_DIR)
 # 	python src/h01_data/extract_rt_text.py --model $(MODEL) --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(TEXT_RT_FILE)
+
+# Preprocess rt data
+$(TEXT_RT_FILE):
+	echo "Process rt data in " $(DATASET)
+	mkdir -p $(TEXT_RT_DIR)
+	python src/h01_data/extract_rt_text.py --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(TEXT_RT_FILE)
 
 # Get natural stories data
 $(NS_FILE2):

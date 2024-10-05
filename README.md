@@ -33,3 +33,29 @@ Then, get the data for the other datasets in this project by running:
 ```bash
 $ make get_data
 ```
+
+After that, you can easily run the entire pipeline for a dataset by running:
+```bash
+$ make DATASET=<dataset>
+```
+where dataset can be one of: `brown`, `natural_stories`, `dundee`, `provo`, `dundee_skip2zero`, `provo_skip2zero` (the last two of which include skipped words).
+
+## Extra Information
+
+#### Citation
+
+If this code or the paper were usefull to you, consider citing it:
+
+```bash
+@article{pimentel-etal-2024-howto,
+    title = "How to Compute the Probability of a Word",
+    author = "Pimentel, Tiago and
+    Meister, Clara",
+    year = "2024",
+}
+```
+
+
+#### Contact
+
+To ask questions or report problems, please open an [issue](https://github.com/tpimentelms/probability-of-a-word-experiments/issues).
