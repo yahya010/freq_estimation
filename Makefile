@@ -81,7 +81,8 @@ get_llh: $(LLH_FILE)
 
 process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 
-get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(BROWN_FILE) $(BNC_FILE) $(DUNDEE_FILE)
+get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BNC_FILE)
+#  $(BROWN_FILE)
 
 # plot_results:
 # 	mkdir -p results/plots
