@@ -23,10 +23,10 @@ def get_args():
 def merge_rt_and_surprisal(args):
     merge_columns = ['text_id', 'word_id']
 
-    df_surprisals = pd.read_csv(args.surprisal_fname, sep='\t')
+    df_surprisals = pd.read_csv(args.surprisal_fname, sep='\t', keep_default_na=False)
     df_surprisals['text_id'] = df_surprisals['text_id'] + 1 # Fix text indexing
 
-    df_rt = pd.read_csv(args.rt_fname, sep='\t', index_col=0)
+    df_rt = pd.read_csv(args.rt_fname, sep='\t', index_col=0, keep_default_na=False)
     df_rt = df_rt[~df_rt.outlier]
     del df_rt['outlier']
     df_rt = df_rt.groupby(merge_columns + ['ref_token']).agg('mean').reset_index()

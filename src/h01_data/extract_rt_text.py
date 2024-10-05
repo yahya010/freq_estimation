@@ -3,7 +3,7 @@ import sys
 import argparse
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from dataset import NaturalStoriesDataset, ProvoDataset
+from dataset import NaturalStoriesDataset, ProvoDataset, DundeeDataset
 from utils import utils
 
 
@@ -27,8 +27,8 @@ def get_text(args):
         text = ProvoDataset.get_text(args.input_path)
     # elif args.dataset == 'provo_skip2zero':
     #     text = get_provo_text(args, main_time_field='time5', skip2zero=True)
-    # elif args.dataset == 'dundee':
-    #     text = get_dundee_text(args, main_time_field='ProgressiveFirstPassTime')
+    elif args.dataset == 'dundee':
+        text = DundeeDataset.get_text(args.input_path)
     # elif args.dataset == 'dundee_skip2zero':
     #     text = get_dundee_text(args, main_time_field='ProgressiveFirstPassTime', skip2zero=True)
     else:

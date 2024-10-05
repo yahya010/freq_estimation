@@ -55,7 +55,7 @@ class ProvoDataset(BaseDataset):
         return paragraphs
 
     @staticmethod
-    def ref_sanity_check(df):
+    def tokens_sanity_check(df):
         df['word'] = df['word'].apply(lambda x: x.lower().strip(punctuation))
         df['ref_token'] = df['ref_token'].apply(lambda x: x.lower().strip(punctuation))
         assert (df['word'] == df['ref_token']).all()
@@ -102,7 +102,7 @@ class ProvoDataset(BaseDataset):
 
         # Create dataframe and sanity check it
         df = cls.create_analysis_dataframe(df, provo_text_words, dataset='provo')
-        cls.ref_sanity_check(df)
+        cls.tokens_sanity_check(df)
 
         # Deleted unused info from dataframe
         cls.remove_unused_columns(df, cls.unused_columns_final)
