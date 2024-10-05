@@ -1,0 +1,231 @@
+predictor	predictor_type	name	fold	diff_empty	diff_medium_surprisal	diff_full_surprisal
+1	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	1	0.0345118363130377	0.0178669164394591	-0.00161138549602402
+2	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	2	0.0418371939081528	0.0157588626799656	-0.00282903153296488
+3	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	3	0.0336091073298093	0.017366704258392	-0.00341538368748573
+4	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	4	0.0449383024648977	0.020612702225848	-0.00354977915495436
+5	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	5	0.0415521427164691	0.025159682860056	0.0021728726904966
+6	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	6	0.0389235436265025	0.020174220730202	-0.00276780590465542
+7	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	7	0.0352127635237096	0.0188376453326748	2.03979093615914e-06
+8	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	8	0.0262000713438271	0.00522037281530263	-0.00390982805608875
+9	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	9	0.0314458315041692	0.0157292401237106	-0.00133802034346697
+10	surprisal + prev_surprisal + prev2_surprisal	-3	prev3_surprisal	10	0.0333481213098894	0.00485575350332024	-0.00262663337945845
+11	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	1	0.0307176987933504	0.0140727789197719	-0.00540552301571129
+12	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	2	0.0394724102932802	0.013394079065093	-0.00519381514783746
+13	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	3	0.0336352440898819	0.0173928410184647	-0.00338924692741305
+14	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	4	0.0495987969770457	0.025273196737996	0.00111071535719365
+15	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	5	0.0316110483430307	0.0152185884866176	-0.00776822168294178
+16	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	6	0.0391529679139344	0.0204036450176339	-0.00253838161722353
+17	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	7	0.031649605397627	0.0152744872065922	-0.0035611183351465
+18	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	8	0.0261931146385148	0.00521341610999038	-0.003916784761401
+19	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	9	0.0270439663271205	0.0113273749466618	-0.00573988552051574
+20	surprisal + prev_surprisal + prev3_surprisal	-3	prev2_surprisal	10	0.0280155045129895	-0.000476863293579655	-0.00795925017635835
+21	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	1	0.0280228183643141	0.0113778984907356	-0.00810040344474761
+22	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	2	0.0300303337335999	0.00395200250541272	-0.0146358917075178
+23	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	3	0.0299414078428786	0.0136990047714614	-0.00708308317441642
+24	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	4	0.0282777871600279	0.00395218692097821	-0.0202102944598241
+25	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	5	0.0298844476633109	0.0134919878068978	-0.00949482236266164
+26	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	6	0.0332155440545439	0.0144662211582434	-0.00847580547661408
+27	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	7	0.0223166571298226	0.00594153893878779	-0.0128940666029509
+28	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	8	0.0179764590942142	-0.00300323943431025	-0.0121334403057016
+29	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	9	0.0282724980056015	0.0125559066251428	-0.00451135384203472
+30	surprisal + prev2_surprisal + prev3_surprisal	-3	prev_surprisal	10	0.0231931123618851	-0.00529925544468401	-0.0127816423274627
+31	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	1	0.0166936464193546	4.87265457760344e-05	-0.0194295753897071
+32	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	2	0.0263173785124788	0.000239047284291694	-0.0183488469286388
+33	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	3	0.0165183772152435	0.000275974143826296	-0.0205061138020515
+34	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	4	0.0258847187639297	0.00155911852488	-0.0226033628559223
+35	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	5	0.0165822830669997	0.000189823210586582	-0.0227969869589728
+36	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	6	0.0192284048068601	0.000479081910559565	-0.0224629447242979
+37	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	7	0.0163942054762698	1.9087285235031e-05	-0.0188165182565037
+38	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	8	0.0217021944872444	0.000722495958719982	-0.0084077049126714
+39	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	9	0.0157107744195333	-5.81696092538664e-06	-0.0170730774281029
+40	prev_surprisal + prev2_surprisal + prev3_surprisal	-3	surprisal	10	0.0295371763964454	0.00104480858987621	-0.00643757829290248
+41	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+42	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+43	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+44	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+45	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+46	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+47	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+48	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+49	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+50	surprisal+prev_surprisal+prev2_surprisal+prev3_surprisal	1	surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+51	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+52	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+53	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+54	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+55	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+56	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+57	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+58	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+59	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+60	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+61	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+62	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+63	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+64	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+65	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+66	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+67	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+68	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+69	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+70	surprisal + surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+71	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+72	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+73	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+74	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+75	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+76	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+77	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+78	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+79	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+80	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+81	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+82	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+83	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+84	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+85	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+86	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+87	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+88	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+89	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+90	surprisal + prev_surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	5	prev_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+91	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+92	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+93	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+94	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+95	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+96	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+97	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+98	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+99	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+100	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+101	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+102	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+103	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+104	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+105	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+106	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+107	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+108	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+109	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+110	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal + prev3_surprisal	5	prev2_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+111	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+112	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+113	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+114	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+115	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+116	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+117	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+118	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+119	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+120	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev2_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+121	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+122	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+123	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+124	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+125	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+126	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+127	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+128	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+129	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+130	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal	5	prev3_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+131	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	1	0.0363762202319489	0.0197313003583703	0.000252998422887174
+132	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	2	0.045796200636504	0.0197178694083169	0.00112997519538638
+133	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	3	0.0372794384175847	0.0210370353461675	0.000254947400289751
+134	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	4	0.0481558275775242	0.0238302273384745	-0.00033225404232784
+135	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	5	0.0391691795502007	0.0227767196937876	-0.000210090475771807
+136	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	6	0.0427111367828221	0.0239618138865216	0.00101978725166418
+137	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	7	0.03516807309133	0.0187929549002952	-4.26506414434868e-05
+138	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	8	0.0305269893905153	0.00954729086199091	0.000417089990599528
+139	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	9	0.0343185049429069	0.0186019135624482	0.00153465309527068
+140	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	6	prev3_surprisal	10	0.0369660500792284	0.00847368227265921	0.00099129538988052
+141	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	1	0.0361232218090617	0.0194783019354832	0
+142	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	2	0.0446662254411176	0.0185878942129305	0
+143	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	3	0.037024491017295	0.0207820879458778	0
+144	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	4	0.0484880816198521	0.0241624813808023	0
+145	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	5	0.0393792700259725	0.0229868101695594	0
+146	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	6	0.0416913495311579	0.0229420266348574	0
+147	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	7	0.0352107237327735	0.0188356055417387	0
+148	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	8	0.0301098993999158	0.00913020087139138	0
+149	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	9	0.0327838518476371	0.0170672604671784	8.88178419700125e-16
+150	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	10	0.0359747546893479	0.00748238688277869	0
+151	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	1	0.036381553872868	0.0197366339992895	0.000258332063806321
+152	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	2	0.0457827959317996	0.0197044647036124	0.00111657049068192
+153	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	3	0.0372257649060774	0.0209833618346602	0.000201273888782438
+154	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	4	0.0473356290519078	0.0230100288128581	-0.00115245256794427
+155	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	5	0.0390694301370189	0.0226769702806058	-0.000309839888953611
+156	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	6	0.0427470495923288	0.0239977266960283	0.00105570006117084
+157	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	7	0.0351481443501926	0.0187730261591579	-6.25793825808074e-05
+158	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	8	0.0304628598754029	0.00948316134687843	0.000352960475487052
+159	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	9	0.0341724644440013	0.0184558730635427	0.00138861259636514
+160	surprisal + surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	5	surprisal_buggy	10	0.0369652623618846	0.00847289455531541	0.000990507672536722
+161	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	1	0.0359934862981035	0.019348566424525	-0.000129735510958184
+162	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	2	0.0443839243203881	0.0183055930922009	-0.000282301120729578
+163	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	3	0.0369816759478505	0.0207392728764333	-4.28150694444795e-05
+164	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	4	0.0494041785563839	0.0250785783173342	0.00091609693653183
+165	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	5	0.039058367129984	0.0226659072735709	-0.000320902895988517
+166	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	6	0.0416422399358103	0.0228929170395098	-4.91095953476517e-05
+167	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	7	0.0347720722815001	0.0183969540904654	-0.000438651451273309
+168	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	8	0.0306915926963542	0.0097118941678298	0.000581693296438424
+169	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	9	0.032473290260624	0.0167566988801653	-0.000310561587012259
+170	surprisal_buggy + prev_surprisal + prev2_surprisal + prev3_surprisal	6	surprisal_buggy	10	0.0367722758957241	0.00827990808915491	0.000797521206376217
+171	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	1	0.0359185549928425	0.0192736351192639	-0.000204666816219223
+172	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	2	0.0455828132685454	0.0195044820403583	0.000916587827427762
+173	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	3	0.0372158497336788	0.0209734466622615	0.00019135871638376
+174	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	4	0.0480583288633492	0.0237327286242994	-0.000429752756502921
+175	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	5	0.0392016539389761	0.022809194082563	-0.000177616086996402
+176	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	6	0.0427395455307309	0.0239902226344304	0.00104819599957295
+177	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	7	0.0350387549965498	0.0186636368055151	-0.000171968736223604
+178	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	8	0.0305235568009534	0.00954385827242898	0.000413657401037604
+179	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	9	0.0340555766732011	0.0183389852927425	0.00127172482556492
+180	surprisal + prev_surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	5	prev_surprisal_buggy	10	0.036946515806914	0.00845414800034483	0.000971761117566139
+181	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	1	0.0372004619815689	0.0205555421079904	0.00107724017250721
+182	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	2	0.0459267974181117	0.0198484661899245	0.00126057197699403
+183	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	3	0.0372571339008951	0.0210147308294779	0.000232642883600143
+184	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	4	0.046574461374532	0.0222488611354823	-0.00191362024532005
+185	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	5	0.0387785071560112	0.022386047299598	-0.000600762869961358
+186	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	6	0.0424450497175606	0.0236957268212601	0.000753700186402639
+187	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	7	0.035265491371117	0.0188903731800822	5.47676383435558e-05
+188	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	8	0.0293707579902982	0.00839105946177376	-0.000739141409617616
+189	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	9	0.0348345592225758	0.0191179678421172	0.00205070737493962
+190	surprisal + prev_surprisal_buggy + prev2_surprisal + prev3_surprisal	6	prev_surprisal_buggy	10	0.0357424786302563	0.0072501108236871	-0.000232276059091596
+191	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	1	0.0352869110956959	0.0186419912221174	-0.000836310713365762
+192	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	2	0.0456524002575005	0.0195740690293134	0.000986174816382857
+193	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	3	0.0372158499258237	0.0209734468544065	0.000191358908528727
+194	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	4	0.048140666642456	0.0238150664034062	-0.000347414977396099
+195	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	5	0.0386464553838168	0.0222539955274037	-0.000732814642155688
+196	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	6	0.0425258398550232	0.0237765169587227	0.000834490323865289
+197	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	7	0.035052887468793	0.0186777692777582	-0.000157836263980471
+198	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	8	0.0304726585595816	0.00949296003105715	0.000362759159665771
+199	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	9	0.0343152506615558	0.0185986592810972	0.00153139881391962
+200	surprisal + prev_surprisal + prev2_surprisal + prev2_surprisal_buggy + prev3_surprisal	5	prev2_surprisal_buggy	10	0.0369665743179448	0.00847420651137565	0.000991819628596957
+201	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	1	0.0350261907243006	0.0183812708507221	-0.00109703108476111
+202	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	2	0.045291669698412	0.0192133384702249	0.000625444257294383
+203	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	3	0.0369560389430772	0.02071363587166	-6.84520742177952e-05
+204	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	4	0.0484581987165384	0.0241325984774887	-2.98829033136272e-05
+205	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	5	0.0399636716018597	0.0235712117454465	0.000584401575887128
+206	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	6	0.0433031355242965	0.0245538126279961	0.0016117859931386
+207	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	7	0.0347206434400844	0.0183455252490496	-0.000490080292689044
+208	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	8	0.030825959012784	0.00984626048425952	0.000716059612868136
+209	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	9	0.0341613527551736	0.018444761374715	0.00137750090753741
+210	surprisal + prev_surprisal + prev2_surprisal_buggy + prev3_surprisal	6	prev2_surprisal_buggy	10	0.0369587957216533	0.00846642791508412	0.000984041032305427
+211	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	1	0.0358136176118107	0.0191686977382322	-0.000309604197251012
+212	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	2	0.0454750051269013	0.0193966738987141	0.000808779685783634
+213	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	3	0.0372426435742321	0.0210002405028149	0.000218152556937135
+214	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	4	0.0482988470352312	0.0239732467961815	-0.000189234584620834
+215	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	5	0.0394769281123608	0.0230844682559477	9.76580863882859e-05
+216	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	6	0.0430380124663046	0.0242886895700041	0.00134666293514663
+217	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	7	0.0346523428568499	0.0182772246658152	-0.000558380875923525
+218	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	8	0.0305140218864874	0.009534323357963	0.000404122486571623
+219	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	9	0.034615383714435	0.0188987923339763	0.00183153186679874
+220	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal + prev3_surprisal_buggy	5	prev3_surprisal_buggy	10	0.0368545680450065	0.00836220023843737	0.000879813355658676
+221	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	1	0.0366584406984227	0.0200135208248442	0.000535218889361033
+222	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	2	0.045854539844135	0.0197762086159479	0.00118831440301737
+223	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	3	0.0371421086891877	0.0208997056177704	0.000117617671892667
+224	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	4	0.0479081706272684	0.0235825703882186	-0.000579910992583699
+225	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	5	0.0386042395195991	0.022211779663186	-0.000775030506373398
+226	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	6	0.0420683376858335	0.023319014789533	0.000376988154675573
+227	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	7	0.0354972467773322	0.0191221285862975	0.000286523044558784
+228	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	8	0.0303707709514631	0.00939107242293868	0.000260871551547304
+229	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	9	0.0338173663187487	0.01810077493829	0.00103351447111244
+230	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal_buggy	6	prev3_surprisal_buggy	10	0.0368871288833343	0.00839476107676518	0.000912374193986487
