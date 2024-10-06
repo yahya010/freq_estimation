@@ -1,9 +1,9 @@
 LANGUAGE := english
 DATASET := natural_stories
 MODEL := pythia-70m
-DATA_DIR := ./corpora
-CHECKPOINT_DIR := ./checkpoints
-RESULTS_DIR := ./results
+DATA_DIR := ./corpora/rt/
+CHECKPOINT_DIR := ./checkpoints/rt/
+RESULTS_DIR := ./results/rt/
 
 DATASET_BASE_NAME := $(if $(filter-out $(DATASET), provo_skip2zero),$(DATASET),provo)
 DATASET_BASE_NAME := $(if $(filter-out $(DATASET), dundee_skip2zero),$(DATASET_BASE_NAME),dundee)
