@@ -1,17 +1,11 @@
 import os
-import re
 import sys
 import argparse
-# import bisect
 import math
-# from string import punctuation
-
-import numpy as np
+import string
 import pandas as pd
-# import mosestokenizer
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-# from corpus import process, metrics
 from utils import utils
 
 
@@ -23,50 +17,6 @@ def get_args():
     parser.add_argument('--output-fname', type=str, required=True)
 
     return parser.parse_args()
-
-
-# def process_surprisals(args):
-#     model_shortname = {
-#         'pythia-70m': '70m', 
-#         'pythia-160m': '160m', 
-#         'pythia-410m': '410m', 
-#         'pythia-14b': '1.4b', 
-#         'pythia-28b': '2.8b', 
-#         'pythia-69b': '6.9b', 
-#         'pythia-120b': '12.0b'
-#     }
-#     start_of_word_symbol = 'Ġ'
-
-#     input_fname = f'{args.input_path}/finished_probs/surprisals_wiki_en_{model_shortname[args.model]}.tsv'
-#     print(input_fname)
-#     model_probs = pd.read_csv(input_fname, sep='\t')
-#     del model_probs['Unnamed: 0']
-#     model_probs.tokens = model_probs.tokens.apply(str)
-
-#     # model_probs.tokens.to_string().apply(lambda x: x[0] == start_of_word_symbol)
-#     model_probs['is_bow'] = model_probs.tokens.apply(lambda x: x[0] == start_of_word_symbol)
-#     model_probs['ones'] = 1
-#     model_probs['text_pos'] = model_probs.groupby('text_id')['ones'].cumsum()
-#     model_probs['is_bos'] = (model_probs['text_pos'] == 1)
-#     del model_probs['ones']
-#     del model_probs['text_pos']
-#     model_probs['word_id'] = model_probs.groupby('text_id')['is_bow'].cumsum()
-#     model_probs['is_eow'] = model_probs.groupby('text_id')['is_bow'].shift(-1)
-#     model_probs.loc[model_probs['is_eow'].isna(), 'is_eow'] = True
-
-#     model_probs['surprisal_fixed'] = model_probs['surprisal'] \
-#                                      - model_probs['bow_fix'] * model_probs['is_bow'] \
-#                                      - model_probs['bos_fix'] * model_probs['is_bos'] \
-#                                      + model_probs['eow_fix'] * model_probs['is_eow']
-
-#     word_probs = model_probs.groupby(['text_id', 'word_id']).agg('sum')
-
-#     assert ((word_probs.is_bow + word_probs.is_bos) == 1).all()
-#     assert (word_probs.is_eow <= 1).all()
-
-#     word_probs['tokens'] = word_probs.tokens.apply(lambda x: x[1:] if (x[0] == start_of_word_symbol) else x)
-
-#     return word_probs
 
 
 def get_surprisals(input_fname):
@@ -96,9 +46,31 @@ def get_length_predictions(df):
     return df_per_word
 
 
+def contains_punctuation(text):
+    # Check if the text contains only punctuation characters
+    return any(char in string.punctuation or char.isspace() for char in text.strip())
+
+
+def only_contains_latin_characters(text):
+    # Check if the text contains only latin letters
+    return all(char in string.ascii_letters for char in text)
+
+def only_contains_lowercase_latin_characters(text):
+    # Check if the text contains only lowercase latin letters
+    return all(char in string.ascii_lowercase for char in text)
+
+
+def drop_non_lowercase(df):
+    # Improve quality of analysed data
+    df['only_lowercase_letters'] = df.word.apply(only_contains_lowercase_latin_characters)
+    df = df[df.only_lowercase_letters]
+
+    return df
+
 def process_dataset(args):
     df = get_surprisals(args.input_fname)
     df = get_length_predictions(df)
+    df = drop_non_lowercase(df)
     return df
 
 
