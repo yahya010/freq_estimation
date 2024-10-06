@@ -1,7 +1,6 @@
-LANGUAGE := english
-DATASET := natural_stories
+LANGUAGE := en
 MODEL := pythia-70m
-MAX_SENTENCES := 5000
+MAX_SENTENCES := 10000
 DATA_DIR := ./corpora/wordlength/
 CHECKPOINT_DIR := ./checkpoints/wordlength/
 RESULTS_DIR := ./results/wordlength/
