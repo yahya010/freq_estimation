@@ -4,7 +4,7 @@ import sys
 import argparse
 # import bisect
 import math
-from string import punctuation
+# from string import punctuation
 
 import numpy as np
 import pandas as pd

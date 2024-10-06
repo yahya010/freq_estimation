@@ -10,73 +10,31 @@ LANGUAGE_CODE := $(if $(filter-out $(LANGUAGE), english),$(LANGUAGE),en)
 
 DATASET_LANG_DIR := $(DATA_DIR)/$(LANGUAGE)
 CHECKPOINT_LANG_DIR := $(CHECKPOINT_DIR)/$(LANGUAGE)
-
-
-# TEXT_RT_DIR := $(CHECKPOINT_DIR)/text_rt_data/
-# SURPRISALS_DIR := $(CHECKPOINT_DIR)/surprisals_rt_data/
-# PREPROCESSED_RT_DIR := $(CHECKPOINT_DIR)/preprocessed_rt_data/
-# MERGED_DATA_DIR := $(CHECKPOINT_DIR)/merged_data/
-# PARAMS_DIR := $(CHECKPOINT_DIR)/params/
-# DELTA_LLH_DIR := $(CHECKPOINT_DIR)/delta_llh/
+RESULTS_LANG_DIR := $(RESULTS_DIR)/$(LANGUAGE)
 
 WIKI_TEXT_FILE := $(DATASET_LANG_DIR)/test.txt
 SUBSAMPLED_TEXT_FILE := $(DATASET_LANG_DIR)/subsampled.txt
 SURPRISALS_FILE := $(CHECKPOINT_LANG_DIR)/suprisal-$(MODEL).tsv
-MERGED_DATA_FILE := $(CHECKPOINT_LANG_DIR)/merged-$(MODEL).tsv
 
-# WORD_LENGTHS_DIR := $(CHECKPOINT_DIR)/wiki40b_probs/
-# WORD_PROBS_FILE := $(WORD_LENGTHS_DIR)/finished_probs/surprisals_wiki_en_$(MODEL).tsv
 LENGTH_PREDICTIONS_FILE := $(CHECKPOINT_LANG_DIR)/lengths-$(MODEL).tsv
-
 
 all: get_data process_data get_llh
 
-# get_length_predictions: $(LENGTH_PREDICTIONS_FILE)
+get_data: $(WIKI_TEXT_FILE) $(SUBSAMPLED_TEXT_FILE)
 
-# get_llh: $(LLH_FILE)
-get_llh: 
-
-# process_data: $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 process_data: $(SURPRISALS_FILE)
 
-get_data: $(WIKI_TEXT_FILE) $(SUBSAMPLED_TEXT_FILE)
-# #  $(BROWN_FILE)
+get_llh: $(LENGTH_PREDICTIONS_FILE)
 
-# # plot_results:
-# # 	mkdir -p results/plots
-# # 	python src/h03_paper/plot_effects.py
-# # 	python src/h03_paper/plot_entropy_vs_surprisal.py
-# # 	python src/h03_paper/plot_renyi_llh.py
-# # 	python src/other/renyi_analysis_script.py
+plot_wordlengths:
+	mkdir -p $(RESULTS_LANG_DIR)
+	python src/h03_paper/plot_wordlength.py --input-path $(CHECKPOINT_LANG_DIR) --output-path $(RESULTS_LANG_DIR)
 
-# print_table_1:
-# 	python src/h03_paper/print_table_1_surprisal.py
 
-# # print_table_2:
-# # 	python src/h03_paper/print_table_2_fixed.py --model $(MODEL)
-
-# # plot_wordlengths:
-# # 	python src/h03_paper/plot_model_wordlength.py
-
-# # $(LENGTH_PREDICTIONS_FILE):
-# # 	python src/h01_data/get_length_predictions.py --model $(MODEL) --dataset $(DATASET) --input-path $(WORD_LENGTHS_DIR) --output-fname $(LENGTH_PREDICTIONS_FILE)
-
-# $(LLH_FILE):
-# 	mkdir -p $(PARAMS_DIR)
-# 	mkdir -p $(DELTA_LLH_DIR)
-# 	Rscript src/h02_rt_model/rt_vs_surprisal.R $(MERGED_DATA_FILE) $(LLH_FILE) $(ANALYSIS_PARAMS_FNAME_BASE) --merge-workers --is-linear
-
-# # Preprocess rt data
-# $(MERGED_DATA_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(MERGED_DATA_DIR)
-# 	python src/h01_data/get_rt_with_surprisal_dataset.py --rt-fname $(PREPROCESSED_RT_FILE) --surprisal-fname $(SURPRISALS_FILE) --output-fname $(MERGED_DATA_FILE)
-
-# # Preprocess rt data
-# $(PREPROCESSED_RT_FILE):
-# 	echo "Process rt data in " $(DATASET)
-# 	mkdir -p $(PREPROCESSED_RT_DIR)
-# 	python src/h01_data/preprocess_rt_dataset.py --dataset $(DATASET) --input-path $(DATASET_DIR) --output-fname $(PREPROCESSED_RT_FILE)
+# Get wordlength predictions
+$(LENGTH_PREDICTIONS_FILE):
+	echo "Process rt data in " $(LANGUAGE)
+	python src/h01_data/get_wordlength_predictions.py --input-fname $(SURPRISALS_FILE) --output-fname $(LENGTH_PREDICTIONS_FILE)
 
 # Get surprisals
 $(SURPRISALS_FILE): $(SUBSAMPLED_TEXT_FILE)
