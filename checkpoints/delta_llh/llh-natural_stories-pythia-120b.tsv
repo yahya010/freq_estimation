@@ -1,0 +1,21 @@
+predictor	predictor_type	name	fold	diff_empty	diff_full_surprisal
+1	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	1	0.0230807638359618	-0.000278031023180247
+2	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	2	0.033870838232656	0.000667344966113426
+3	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	3	0.0286592036032607	0.000450419620225517
+4	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	4	0.0340527023507837	7.29345734917786e-07
+5	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	5	0.0240482534299229	4.34854403712492e-05
+6	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	6	0.0314280684345638	0.000725806739323431
+7	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	7	0.0143248563632774	-0.000615139126783681
+8	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	8	0.0228406951512374	0.000428415647983904
+9	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	9	0.0177707065197144	0.000921572733348697
+10	surprisal + prev_surprisal + prev2_surprisal + prev3_surprisal	1	surprisal	10	0.0173512351005627	0.000382711904599375
+11	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	1	0.023358794859142	0
+12	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	2	0.0332034932665426	0
+13	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	3	0.0282087839830352	0
+14	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	4	0.0340519730050488	0
+15	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	5	0.0240047679895516	0
+16	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	6	0.0307022616952404	0
+17	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	7	0.0149399954900611	0
+18	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	8	0.0224122795032535	0
+19	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	9	0.0168491337863648	-8.88178419700125e-16
+20	surprisal_buggy + prev_surprisal_buggy + prev2_surprisal_buggy + prev3_surprisal_buggy	1	surprisal_buggy	10	0.0169685231959633	0
