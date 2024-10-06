@@ -156,4 +156,4 @@ cython_debug/
 
 # Project specific
 corpora/*
-!corpora/unigrams.csv
+!corpora/rt/unigrams.csv
