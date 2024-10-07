@@ -1,0 +1,53 @@
+LANGUAGE := en
+MODEL := pythia-70m
+MAX_SENTENCES := 10000
+DATA_DIR := ./corpora/wordlength/
+CHECKPOINT_DIR := ./checkpoints/wordlength/
+RESULTS_DIR := ./results/wordlength/
+
+LANGUAGE_CODE := $(if $(filter-out $(LANGUAGE), english),$(LANGUAGE),en)
+
+DATASET_LANG_DIR := $(DATA_DIR)/$(LANGUAGE)
+CHECKPOINT_LANG_DIR := $(CHECKPOINT_DIR)/$(LANGUAGE)
+RESULTS_LANG_DIR := $(RESULTS_DIR)/$(LANGUAGE)
+
+WIKI_TEXT_FILE := $(DATASET_LANG_DIR)/test.txt
+SUBSAMPLED_TEXT_FILE := $(DATASET_LANG_DIR)/subsampled-$(MAX_SENTENCES).txt
+SURPRISALS_FILE := $(CHECKPOINT_LANG_DIR)/suprisal-$(MODEL).tsv
+
+LENGTH_PREDICTIONS_FILE := $(CHECKPOINT_LANG_DIR)/lengths-$(MODEL).tsv
+
+all: get_data process_data get_llh
+
+get_data: $(WIKI_TEXT_FILE) $(SUBSAMPLED_TEXT_FILE)
+
+process_data: $(SURPRISALS_FILE)
+
+get_llh: $(LENGTH_PREDICTIONS_FILE)
+
+plot_wordlengths:
+	mkdir -p $(RESULTS_LANG_DIR)
+	python src/h03_paper/plot_wordlength.py --input-path $(CHECKPOINT_LANG_DIR) --output-path $(RESULTS_LANG_DIR)
+
+
+# Get wordlength predictions
+$(LENGTH_PREDICTIONS_FILE):
+	echo "Process rt data in " $(LANGUAGE)
+	python src/h01_data/get_wordlength_predictions.py --input-fname $(SURPRISALS_FILE) --output-fname $(LENGTH_PREDICTIONS_FILE)
+
+# Get surprisals
+$(SURPRISALS_FILE): $(SUBSAMPLED_TEXT_FILE)
+	echo "Process rt data in " $(LANGUAGE)
+	mkdir -p $(CHECKPOINT_LANG_DIR)
+	wordsprobability --model $(MODEL) --input $(SUBSAMPLED_TEXT_FILE) --output $(SURPRISALS_FILE) --return-buggy-surprisals
+
+# Subsample text data
+$(SUBSAMPLED_TEXT_FILE):
+	echo "Process rt data in " $(LANGUAGE)
+	shuf $(WIKI_TEXT_FILE) -n $(MAX_SENTENCES) -o $(SUBSAMPLED_TEXT_FILE)
+
+# Get wiki text data
+$(WIKI_TEXT_FILE):
+	echo "Process rt data in " $(LANGUAGE)
+	mkdir -p $(DATASET_LANG_DIR)
+	tokenize_wiki_40b --language $(LANGUAGE_CODE) --tgt-dir $(DATASET_LANG_DIR) --break-text-mode document --dont-tokenize
