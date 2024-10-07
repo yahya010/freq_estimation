@@ -22,10 +22,10 @@ MODEL_SIZES = {
         'pythia-70m': 70,
         'pythia-160m': 160,
         'pythia-410m': 410,
-        # 'pythia-14b': 1400,
-        # 'pythia-28b': 2800,
+        'pythia-14b': 1400,
+        'pythia-28b': 2800,
         # 'pythia-69b': 6900,
-        # 'pythia-120b': 12000,
+        'pythia-120b': 12000,
     }
 
 PRETTY_NAMES = {'pythia': 'Pythia', 'gpt': 'GPT-2'}

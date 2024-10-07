@@ -38,7 +38,7 @@ UCL_FILE_RAW := $(UCL_DIR)/ucl.zip
 UCL_FILE := $(UCL_DIR)/stimuli_pos.txt
 
 BROWN_DIR := $(DATA_DIR)/brown/
-BROWN_FILE_RAW := $(BROWN_DIR)/data.zip
+# BROWN_FILE_RAW := $(BROWN_DIR)/data.zip
 BROWN_FILE := $(BROWN_DIR)/brown_spr.csv
 
 BNC_DIR := $(DATA_DIR)/bnc/
@@ -81,8 +81,8 @@ get_llh: $(LLH_FILE)
 
 process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 
-get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BNC_FILE)
-#  $(BROWN_FILE)
+get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BROWN_FILE)
+#  $(BNC_FILE)
 
 # plot_results:
 # 	mkdir -p results/plots
@@ -142,17 +142,15 @@ $(NS_FILE2):
 	wget -O $(NS_FILE1) $(NS_URL1)
 	wget -O $(NS_FILE2) $(NS_URL2)
 
-# Get BNC data
-$(BNC_FILE):
-	mkdir -p $(BNC_DIR)
-	wget -O $(BNC_FILE) $(BNC_URL)
+# # Get BNC data
+# $(BNC_FILE):
+# 	mkdir -p $(BNC_DIR)
+# 	wget -O $(BNC_FILE) $(BNC_URL)
 
 # Get brown data
 $(BROWN_FILE):
 	mkdir -p $(BROWN_DIR)
-	gdown -O $(BROWN_DIR) https://drive.google.com/u/0/uc?id=1e-anJ4laGlTY-E0LNook1EzKBU2S1jI8
-	unzip $(BROWN_FILE_RAW) -d $(BROWN_DIR)
-	mv $(BROWN_DIR)/data/corpora/*brown* $(BROWN_DIR)/
+	gdown -O $(BROWN_DIR)/brown_spr.csv https://drive.google.com/file/d/1cxBysSPldAj6nRqywVe4EstQoKtk67Qr
 
 # Get UCL data
 $(UCL_FILE):
