@@ -36,6 +36,7 @@ def merge_rt_and_surprisal(args):
         how='outer').reset_index()
     
     assert not df.surprisal.isna().any()
+    assert (df.word == df.ref_token).all()
     return df
 
 

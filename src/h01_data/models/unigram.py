@@ -14,7 +14,7 @@ class UnigramModel:
     def __init__(self, lang='en'):
         self.lang = lang
         if lang == 'en':
-            with open('corpora/unigrams.csv', mode='r', encoding='utf8') as infile:
+            with open('corpora/rt/unigrams.csv', mode='r', encoding='utf8') as infile:
                 reader = csv.reader(infile)
                 self.lookup = {rows[0]:-float(rows[1]) for rows in reader}
         else:

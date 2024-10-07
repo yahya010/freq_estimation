@@ -150,7 +150,7 @@ $(NS_FILE2):
 # Get brown data
 $(BROWN_FILE):
 	mkdir -p $(BROWN_DIR)
-	gdown -O $(BROWN_DIR)/brown_spr.csv https://drive.google.com/file/d/1cxBysSPldAj6nRqywVe4EstQoKtk67Qr
+	gdown 1cxBysSPldAj6nRqywVe4EstQoKtk67Qr -O $(BROWN_DIR)/brown_spr.csv
 
 # Get UCL data
 $(UCL_FILE):

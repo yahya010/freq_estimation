@@ -3,7 +3,7 @@ import sys
 import argparse
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from dataset import NaturalStoriesDataset, ProvoDataset, DundeeDataset
+from dataset import BrownDataset, NaturalStoriesDataset, ProvoDataset, DundeeDataset
 from utils import utils
 
 
@@ -21,8 +21,8 @@ def get_args():
 def get_text(args):
     if args.dataset == 'natural_stories':
         text = NaturalStoriesDataset.get_text(args.input_path)
-    # elif args.dataset == 'brown':
-    #     text = get_brown_text(args)
+    elif args.dataset == 'brown':
+        text = BrownDataset.get_text(args.input_path)
     elif args.dataset == 'provo':
         text = ProvoDataset.get_text(args.input_path)
     # elif args.dataset == 'provo_skip2zero':
