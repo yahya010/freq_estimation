@@ -25,7 +25,7 @@ MODEL_SIZES = {
     }
 
 PRETTY_NAMES = {'pythia': 'Pythia', 'gpt': 'GPT-2'}
-PRED_NAMES = {'surprisal_buggy': 'Surprisal (original)', 
+PRED_NAMES = {'surprisal_buggy': 'Surprisal (buggy)', 
               'surprisal': 'Surprisal (corrected)'}
 HYP_NAMES = {'piantadosi': r'CCH (Piantadosi et al.)', 
              'cch': r'CCH (Pimentel et al.)',
@@ -90,23 +90,27 @@ def plot_wordlength_results(args):
     
     all_dfs.sort_values(['size', 'name', 'predictor', 'model_family'], inplace=True)
     
+    # sns.set_context("notebook", font_scale=0.1)
+
     sns.set_theme(font="DejaVu Serif", style="whitegrid")
     plt.tight_layout()
     plt.xscale('log')
 
     g = sns.FacetGrid(all_dfs, col="metric", height=3.5, aspect=.65, sharey=True, gridspec_kws={"wspace":0.3}) #
-    g.set_titles(col_template="{col_name}",fontsize=11)
+    g.set_titles(col_template="{col_name}",fontsize=10)
 
     g.map_dataframe(sns.lineplot, x='size', y='value', hue='name', style='hypothesis', errorbar=('ci', 95), n_boot=20000)
     
-    g.add_legend()
-    g.set_axis_labels("", r'Correlations', fontsize=13)
+    # g.add_legend()
+    g.add_legend(bbox_to_anchor=(0.11, 0.08), loc='upper left', borderaxespad=0, ncol=2, fontsize=8)
+    g.set_axis_labels("", r'Correlations', fontsize=10)
     g.legend.get_texts()[0].set_text('')
     g.legend.get_texts()[4].set_text('')
+    # g.set_xlabel("# of Parameters (in Millions)")
     for i,ax in enumerate(g.axes.flat):
 
-        if i == 2:
-            ax.set_xlabel("# of Parameters (in Millions)")
+        if i == 0:
+            ax.set_xlabel("                                 # of Parameters (in Millions)")
         ax.xaxis.set_tick_params(pad=0)
         ax.yaxis.set_tick_params(pad=0)
         ax.set(xscale="log")
@@ -116,6 +120,7 @@ def plot_wordlength_results(args):
             label.set_fontsize(9)
         
     plt.subplots_adjust(bottom=0.2)
+    # plt.legend(bbox_to_anchor=(1.02, 0.15), loc='upper left', borderaxespad=0)
     g.savefig(f'{args.output_path}/wordlength_spearman.pdf', dpi=300)
 
 
