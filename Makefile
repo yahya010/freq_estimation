@@ -96,7 +96,7 @@ print_table_1:
 
 plot_rt:
 	mkdir -p $(RESULTS_DIR)
-	python src/h03_paper/plot_rt.py --dataset natural_stories dundee provo --input-path $(DELTA_LLH_DIR) --output-path $(RESULTS_DIR)
+	python src/h03_paper/plot_rt.py --input-path $(DELTA_LLH_DIR) --output-path $(RESULTS_DIR)
 
 # print_table_2:
 # 	python src/h03_paper/print_table_2_fixed.py --model $(MODEL)
