@@ -38,7 +38,7 @@ UCL_FILE_RAW := $(UCL_DIR)/ucl.zip
 UCL_FILE := $(UCL_DIR)/stimuli_pos.txt
 
 BROWN_DIR := $(DATA_DIR)/brown/
-BROWN_FILE_RAW := $(BROWN_DIR)/data.zip
+# BROWN_FILE_RAW := $(BROWN_DIR)/data.zip
 BROWN_FILE := $(BROWN_DIR)/brown_spr.csv
 
 BNC_DIR := $(DATA_DIR)/bnc/
@@ -75,34 +75,20 @@ LENGTH_PREDICTIONS_FILE := $(WORD_LENGTHS_DIR)/lengths/lengths_wiki_en_$(MODEL).
 
 all: get_data process_data get_llh
 
-# get_length_predictions: $(LENGTH_PREDICTIONS_FILE)
-
 get_llh: $(LLH_FILE)
 
 process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 
-get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BNC_FILE)
-#  $(BROWN_FILE)
-
-# plot_results:
-# 	mkdir -p results/plots
-# 	python src/h03_paper/plot_effects.py
-# 	python src/h03_paper/plot_entropy_vs_surprisal.py
-# 	python src/h03_paper/plot_renyi_llh.py
-# 	python src/other/renyi_analysis_script.py
+get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BROWN_FILE)
 
 print_table_1:
 	python src/h03_paper/print_table_1_surprisal.py
 
-# print_table_2:
-# 	python src/h03_paper/print_table_2_fixed.py --model $(MODEL)
+plot_rt:
+	mkdir -p $(RESULTS_DIR)
+	python src/h03_paper/plot_rt.py --input-path $(DELTA_LLH_DIR) --output-path $(RESULTS_DIR)
 
-# plot_wordlengths:
-# 	python src/h03_paper/plot_model_wordlength.py
-
-# $(LENGTH_PREDICTIONS_FILE):
-# 	python src/h01_data/get_length_predictions.py --model $(MODEL) --dataset $(DATASET) --input-path $(WORD_LENGTHS_DIR) --output-fname $(LENGTH_PREDICTIONS_FILE)
-
+# Get log-likelihoods of predicting reading times
 $(LLH_FILE):
 	mkdir -p $(PARAMS_DIR)
 	mkdir -p $(DELTA_LLH_DIR)
@@ -138,17 +124,10 @@ $(NS_FILE2):
 	wget -O $(NS_FILE1) $(NS_URL1)
 	wget -O $(NS_FILE2) $(NS_URL2)
 
-# Get BNC data
-$(BNC_FILE):
-	mkdir -p $(BNC_DIR)
-	wget -O $(BNC_FILE) $(BNC_URL)
-
 # Get brown data
 $(BROWN_FILE):
 	mkdir -p $(BROWN_DIR)
-	gdown -O $(BROWN_DIR) https://drive.google.com/u/0/uc?id=1e-anJ4laGlTY-E0LNook1EzKBU2S1jI8
-	unzip $(BROWN_FILE_RAW) -d $(BROWN_DIR)
-	mv $(BROWN_DIR)/data/corpora/*brown* $(BROWN_DIR)/
+	gdown 1cxBysSPldAj6nRqywVe4EstQoKtk67Qr -O $(BROWN_DIR)/brown_spr.csv
 
 # Get UCL data
 $(UCL_FILE):

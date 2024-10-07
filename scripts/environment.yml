@@ -21,3 +21,4 @@ dependencies:
     - nltk
     - sacremoses
     - rpy2
+    - wikitokenizer

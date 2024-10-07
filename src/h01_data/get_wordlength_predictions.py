@@ -4,6 +4,7 @@ import argparse
 import math
 import string
 import pandas as pd
+from tqdm import tqdm
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 from utils import utils
@@ -13,6 +14,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     # Data
     parser.add_argument('--input-fname', type=str, required=True)
+    parser.add_argument('--freq-fname', type=str, required=True)
     # Output
     parser.add_argument('--output-fname', type=str, required=True)
 
@@ -25,14 +27,26 @@ def get_surprisals(input_fname):
     return df
 
 
+def get_frequencies(df, freq_fname):
+    word_counts = {word: 1 for word in df.word.unique()}
+
+    with open(freq_fname, mode='r', encoding='utf8') as f:
+        for line in tqdm(f, desc='Getting frequencies'):
+            for word in line.strip().split():
+                if word in word_counts:
+                    word_counts[word] += 1
+
+    df['frequency'] = df['word'].apply(lambda x: word_counts[x])
+    return df
+
+
 def get_length_predictions(df):
     df['surprisal_squared'] = df['surprisal'].apply(lambda x: x**2)
     df['surprisal_buggy_squared'] = df['surprisal_buggy'].apply(lambda x: x**2)
 
-    df['frequency'] = df.groupby('word')['surprisal'].transform('count')
-
     df_per_word = df.groupby('word')[['surprisal', 'surprisal_buggy', 'surprisal_squared', 
-                                        'surprisal_buggy_squared', 'frequency']].agg('mean').reset_index()
+                                      'surprisal_buggy_squared', 'frequency']].agg('mean').reset_index()
+
     df_per_word['cch'] = df_per_word['surprisal_squared'] / df_per_word['surprisal']
     df_per_word['cch_buggy'] = df_per_word['surprisal_buggy_squared'] / df_per_word['surprisal_buggy']
     df_per_word['zipf'] = df_per_word['frequency'].apply(lambda x: math.log(x))
@@ -69,6 +83,7 @@ def drop_non_lowercase(df):
 
 def process_dataset(args):
     df = get_surprisals(args.input_fname)
+    df = get_frequencies(df, args.freq_fname)
     df = get_length_predictions(df)
     df = drop_non_lowercase(df)
     return df

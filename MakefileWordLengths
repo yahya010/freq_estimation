@@ -33,7 +33,7 @@ plot_wordlengths:
 # Get wordlength predictions
 $(LENGTH_PREDICTIONS_FILE):
 	echo "Process rt data in " $(LANGUAGE)
-	python src/h01_data/get_wordlength_predictions.py --input-fname $(SURPRISALS_FILE) --output-fname $(LENGTH_PREDICTIONS_FILE)
+	python src/h01_data/get_wordlength_predictions.py --input-fname $(SURPRISALS_FILE) --freq-fname $(WIKI_TEXT_FILE) --output-fname $(LENGTH_PREDICTIONS_FILE)
 
 # Get surprisals
 $(SURPRISALS_FILE): $(SUBSAMPLED_TEXT_FILE)
