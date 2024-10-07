@@ -157,3 +157,4 @@ cython_debug/
 # Project specific
 corpora/*
 !corpora/rt/unigrams.csv
+checkpoints/wordlength/en/suprisal-*
