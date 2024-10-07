@@ -15,25 +15,18 @@ from utils import plot as utils_plot
 
 
 MODEL_SIZES = {
-        # 'gpt-small': 117,
-        # 'gpt-medium': 345,
-        # 'gpt-xl': 1500,
-        # 'gpt-large': 762,
         'pythia-70m': 70,
         'pythia-160m': 160,
         'pythia-410m': 410,
         'pythia-14b': 1400,
         'pythia-28b': 2800,
-        # 'pythia-69b': 6900,
-        'pythia-120b': 12000,
+        'pythia-69b': 6900,
+        # 'pythia-120b': 12000, ## not enough time to run on same words as other models
     }
 
 PRETTY_NAMES = {'pythia': 'Pythia', 'gpt': 'GPT-2'}
 PRED_NAMES = {'surprisal_buggy': 'Surprisal (original)', 
               'surprisal': 'Surprisal (corrected)'}
-# HYP_NAMES = {'piantadosi': r'$\textsc{cch}_{\downarrow}$', 
-#              'cch': r'$\textsc{cch}$',
-#              'zipf': r'$\textsc{zipf}$'}
 HYP_NAMES = {'piantadosi': r'CCH (Piantadosi et al.)', 
              'cch': r'CCH (Pimentel et al.)',
              'zipf': r'Zipf'}
@@ -54,7 +47,6 @@ def get_wordlength_correlations(input_path, model):
     fname_base = os.path.join(input_path, 'lengths-%s.tsv')
     fname = fname_base % (model)
 
-    # import ipdb; ipdb.set_trace()
     try:
         df_raw = pd.read_csv(fname, sep='\t')
     except FileNotFoundError:
@@ -64,7 +56,6 @@ def get_wordlength_correlations(input_path, model):
     del df_raw['Unnamed: 0']
     df_raw['zipf'] = - df_raw['zipf']
 
-    # df.corr()
     predictors = ['piantadosi_buggy', 'piantadosi', 'cch_buggy', 'cch', 'zipf']
     rows = []
     for predictor in predictors:
@@ -93,8 +84,8 @@ def plot_wordlength_results(args):
         all_dfs.append(df)
     all_dfs = pd.concat(all_dfs)
 
-    zipf_corr = all_dfs.loc[all_dfs.hypothesis == 'Zipf', 'value'].unique()[0]
-    all_dfs.loc[all_dfs.hypothesis == 'Zipf', 'value'] = zipf_corr
+    # zipf_corr = all_dfs.loc[all_dfs.hypothesis == 'Zipf', 'value'].unique()[0]
+    # all_dfs.loc[all_dfs.hypothesis == 'Zipf', 'value'] = zipf_corr
     all_dfs.loc[all_dfs.hypothesis == 'Zipf', 'name'] = 'Surprisal (unigram)'
     
     all_dfs.sort_values(['size', 'name', 'predictor', 'model_family'], inplace=True)
