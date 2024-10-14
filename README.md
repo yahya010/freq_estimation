@@ -1,6 +1,8 @@
 # probability-of-a-word-experiments
 Code to run experiments of paper "How to Compute the Probability of a Word"
 
+For a pip-installable library to compute word probabilities, see [this repository](https://github.com/tpimentelms/probability-of-a-word).
+
 ## Install Dependencies
 
 First, install R if you don't already have it in your computer. Then, create a conda environment with
@@ -44,14 +46,19 @@ where dataset can be one of: `brown`, `natural_stories`, `dundee`, `provo`, `dun
 
 #### Citation
 
-If this code or the paper were usefull to you, consider citing it:
+If this code or the paper were useful to you, consider citing it:
 
-```bash
-@article{pimentel-etal-2024-howto,
+
+```bibtex
+@inproceedings{pimentel-etal-2024-howto,
     title = "How to Compute the Probability of a Word",
     author = "Pimentel, Tiago and
     Meister, Clara",
     year = "2024",
+    url = {https://arxiv.org/abs/2406.14561},
+    booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing},
+    publisher = {Association for Computational Linguistics},
+    address = {Miami, Florida, USA},
 }
 ```
 
