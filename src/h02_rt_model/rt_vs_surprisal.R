@@ -17,7 +17,8 @@ df <- load_and_preprocess_data(input_fname, merge_workers)
 if (is_linear) {
   predictors <- c()
 
-  variables <- c('surprisal', 'surprisal_buggy')
+  # variables <- c('surprisal', 'surprisal_buggy')
+  variables <- c('freq', 'freq_full_wiki', 'freq_3_4_wiki', 'freq_half_wiki', 'freq_1_5_wiki', 'freq_1_10_wiki')
   for (variable in variables) {
     predictors <- c(predictors, get_variable_predictors_all(variable))
   }
@@ -29,7 +30,8 @@ print(paste0('Processing dataset ',input_fname))
 
 # Get baseline log likelihood
 if (is_linear & merge_workers) {
-  essential_predictors <- 'word_len*freq + prev_freq*prev_word_len + prev2_freq*prev2_word_len + prev3_freq*prev3_word_len'
+  # essential_predictors <- 'word_len*freq + prev_freq*prev_word_len + prev2_freq*prev2_word_len + prev3_freq*prev3_word_len'
+  essential_predictors <- 'word_len + prev_word_len + prev2_word_len + prev3_word_len'
   baselines <- get_baselines()
 
   baseline_llhs <- hash()
