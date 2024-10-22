@@ -79,8 +79,10 @@ get_llh: $(LLH_FILE)
 
 process_data: $(TEXT_RT_FILE) $(SURPRISALS_FILE) $(PREPROCESSED_RT_FILE) $(MERGED_DATA_FILE)
 
-get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) $(DUNDEE_FILE) $(BROWN_FILE)
-
+get_data: $(COLA_DIR) $(PROVO_FILE2) $(UCL_FILE) $(NS_FILE2) 
+# $(DUNDEE_FILE) $(BROWN_FILE)
+clean:
+	rm $(LLH_FILE) $(MERGED_DATA_FILE)
 print_table_1:
 	python src/h03_paper/print_table_1_surprisal.py
 
@@ -141,9 +143,9 @@ $(PROVO_FILE2):
 	wget -O $(PROVO_FILE1) $(PROVO_URL1)
 	wget -O $(PROVO_FILE2) $(PROVO_URL2)
 
-# Get dundee data
-$(DUNDEE_FILE):
-	unzip $(DUNDEE_FILE_RAW) -d $(DATA_DIR)
+# # Get dundee data
+# $(DUNDEE_FILE):
+# 	unzip $(DUNDEE_FILE_RAW) -d $(DATA_DIR)
 
 # Get COLA data
 $(COLA_DIR):
